@@ -1,0 +1,16 @@
+{
+  "name": "server-tic-tac-toe",
+  "version": "1.0.0",
+  "description": "Tic-Tac-Toe game playable with two players.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prathap P",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
