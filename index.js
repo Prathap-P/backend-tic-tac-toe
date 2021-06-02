@@ -10,15 +10,14 @@ const io = require('socket.io')(httpServer, {
 });
 
 io.on("connection", (socket) => {
-    let roomId;
     
     socket.on("joinRoom", (id) => {
         console.log(`Joined Room with ID : ${socket.id}`);
-        roomId= id;
-        socket.join(roomId);
+        socket.join(id);
     })
     
-    socket.on("canMove", (boxNum) => {
+    socket.on("canMove", (info) => {
+        let roomId= info[0], boxNum= info[1]; 
         console.log("canMove");
         socket.to(roomId).emit("canMove", boxNum);
     })
@@ -30,5 +29,5 @@ io.on("connection", (socket) => {
 });
 
 httpServer.listen(process.env.PORT, () => {
-    console.log(`App listening on port 9000`);
+    console.log(`App listening on port ${process.env.PORT}`);
 })
